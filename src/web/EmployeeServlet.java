@@ -2,7 +2,6 @@ package web;
 
 
 import java.io.PrintWriter;
-import java.sql.Connection;
 import java.util.List;
 
 import javax.servlet.http.HttpServlet;
@@ -19,8 +18,7 @@ public class EmployeeServlet extends HttpServlet{
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter pw = response.getWriter();
 			String str = "<table border='1'><tr><th>编号</th><th>姓名</th><th>月薪</th><th>年龄</th><th>操作</th></tr>";
-			List<Employees> data = Query.findAll("lyn-bd");
-			System.out.println(data);
+			List<Employees> data = Query.findAll("employee");
 			for(Employees emp : data){
 				int id = emp.getId();
 				String name = emp.getName();
