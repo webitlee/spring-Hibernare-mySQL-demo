@@ -30,9 +30,9 @@ public class EmployeeServlet extends HttpServlet{
 						+ "<td>"+salary+"</td>"
 						+ "<td>"+age+"</td>"
 						+ "<td>"
-						+ "<a href='modified'>修改</a>"
-						+ "<a href='delete'>删除</a>"
-						+ "<a href='add'>添加</a>"
+						+ "<a href='modified'>修改</a><br/>"
+						+ "<a href='delete'>删除</a><br/>"
+						+ "<a href='add'>添加</a><br/>"
 						+ "</td>"
 						+ "</tr>";
 			}

@@ -11,13 +11,12 @@ import entity.Employees;
 public class Query {
 	@SuppressWarnings("finally")
 	public static List<Employees> findAll(String tableName){
-		List<entity.Employees> data = new ArrayList<Employees>();
+		List<Employees> data = new ArrayList<Employees>();
 		Connection conn = util.HandleConnection.getConnection();
-		String sql = "select * from ?";
+		String sql = "select * from " + tableName;
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, tableName);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				Employees emp = new Employees();
@@ -35,17 +34,17 @@ public class Query {
 			return data;
 		}
 	}
-	public static void main(String[] args){
-		List<Employees> list = findAll("employee");
-		String str = "";
-		for(int i = 0; i < list.size(); i++){
-			int id = list.get(i).getId();
-			String name = list.get(i).getName();
-			float salary = list.get(i).getSalary();
-			int age = list.get(i).getAge();
-			str += "id= " + id + "name= " + name + "salary= " + salary + "age= " + age;
-		}
-		System.out.println(str);
-		
-	}
+//	public static void main(String[] args){
+//		List<Employees> list = findAll("employee");
+//		String str = "";
+//		for(int i = 0; i < list.size(); i++){
+//			int id = list.get(i).getId();
+//			String name = list.get(i).getName();
+//			float salary = list.get(i).getSalary();
+//			int age = list.get(i).getAge();
+//			str += "id= " + id + "name= " + name + "salary= " + salary + "age= " + age;
+//		}
+//		System.out.println(str);
+//		
+//	}
 }
