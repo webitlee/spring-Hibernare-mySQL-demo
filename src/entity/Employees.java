@@ -1,33 +1,33 @@
 package entity;
 
 public class Employees {
-	private static String name;
-	private static float salary;
-	private static int age;
-	private static int id;
-	public static int getId(){
-		return id;
-	}
-	public static int setId(int id){
-		return Employees.id = id;
-	}
-	public static String getName() {
+	public String name;
+	public float salary;
+	public int age;
+	public int id;
+	public String getName() {
 		return name;
 	}
-	public static void setName(String name) {
-		Employees.name = name;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public static float getSalary() {
+	public float getSalary() {
 		return salary;
 	}
-	public static void setSalary(float salary) {
-		Employees.salary = salary;
+	public void setSalary(float salary) {
+		this.salary = salary;
 	}
-	public static int getAge() {
+	public int getAge() {
 		return age;
 	}
-	public static void setAge(int age) {
-		Employees.age = age;
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }
