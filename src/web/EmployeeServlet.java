@@ -30,13 +30,13 @@ public class EmployeeServlet extends HttpServlet{
 						+ "<td>"+salary+"</td>"
 						+ "<td>"+age+"</td>"
 						+ "<td>"
-						+ "<a href='modified'>修改</a><br/>"
-						+ "<a href='delete'>删除</a><br/>"
-						+ "<a href='add'>添加</a><br/>"
+						+ "<a href='/gitRepository/modified' data-id='"+id+"' class='modified'>修改</a><br/>"
+						+ "<a href='/gitRepository/delete' data-id='"+id+"' class=delete>删除</a><br/>"
 						+ "</td>"
 						+ "</tr>";
 			}
 			str += "</table>";
+			str += "<a href='/gitRepository/html/add.html'>添加</a><br/>";
 			pw.println(str);
 			
 		} catch (Exception e) {
