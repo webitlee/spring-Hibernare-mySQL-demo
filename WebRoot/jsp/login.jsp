@@ -23,15 +23,22 @@
 			<span>验证码：</span>
 			<input id="auth-code" name="authCode"/>
 			<img id="img" src="" title="验证码"/>
-			<span id="hint" style="color:red;display:none;"></span>
+			<span id="hint" style="color:red;">
+				<%
+					String hint = (String)request.getAttribute("hint");
+					if(hint != null){
+						out.print(hint);
+					}
+				%>
+			</span>
 		</div>
 		<button id="btn-submit">登录</button>
 	</form>
 </body>
 <script>
+	var code = null;
 	$('#auth-code').focus(function(){
 		$('#img').attr('src', "/gitRepository/image?" + Math.random());
 	})
-	
 </script>
 </html>

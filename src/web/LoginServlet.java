@@ -21,9 +21,16 @@ public class LoginServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
+		String authCode = request.getParameter("authCode");
+		HttpSession s = request.getSession();
+		String realCode = (String)s.getAttribute("authCode");
+		if(realCode != null && !authCode.toLowerCase().equals(realCode.toLowerCase())){
+			request.setAttribute("hint", "ÑéÖ¤Âë´íÎó");
+			request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+		}
 		Admin adm = Query.findByAccount("admin", account);
 		if(account.equals(adm.getAccount()) && password.equals(adm.getPassword())){
-			HttpSession s = request.getSession();
+			s = request.getSession();
 			s.setAttribute("login", adm);
 			response.sendRedirect("/gitRepository/list");
 		}else{
