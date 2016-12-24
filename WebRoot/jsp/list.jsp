@@ -17,6 +17,12 @@
 </style>
 </head>
 <body>
+	<%
+		if(session.getAttribute("login") == null){
+			response.sendRedirect("/gitRepository/jsp/login.jsp");
+			return;
+		}
+	%>
 	<table>
 		<tr>
 			<th>ID</th>
@@ -27,7 +33,6 @@
 		</tr>
 			<%
 				List<Employees> emp = (List<Employees>)request.getAttribute("empList");
-				System.out.println(emp);
 				for(int i = 0; i < emp.size(); i++){
 					int id = emp.get(i).getId();
 					String name = emp.get(i).getName();

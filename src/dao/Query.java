@@ -3,10 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import entity.Admin;
 import entity.Employees;
 import util.HandleConnection;
 
@@ -56,6 +56,28 @@ public class Query {
 		} finally{
 			HandleConnection.closeConnection();
 			return emp;
+		}
+	}
+	
+	@SuppressWarnings("finally")
+	public static Admin findByAccount(String tableName, String account){
+		Admin admin = new Admin();
+		try {
+			Connection conn = HandleConnection.getConnection();
+			String sql = "select * from " + tableName + " where account = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, account);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				admin.setId(rs.getInt("id"));
+				admin.setAccount(rs.getString("account"));
+				admin.setPassword(rs.getString("password"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			HandleConnection.closeConnection();
+			return admin;
 		}
 	}
 //	public static void main(String[] args){
