@@ -29,6 +29,5 @@
 	<c:out value="${result }"></c:out><br/>
 	<c:out value="${fn:escapeXml('<p>haha</p>') }"></c:out><br/>
 	<p>自定义标签测试</p>
-	<diyTag:date></diyTag:date>
 </body>
 </html>
