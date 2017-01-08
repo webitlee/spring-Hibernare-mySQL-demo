@@ -20,4 +20,6 @@
     <bean id="date" class="java.util.Date"/>
     <bean id="calendar" class="java.util.Calendar" factory-method="getInstance"/>
     <bean id="time" factory-bean="calendar" factory-method="getTime"/>
+    <bean id="init" class="springDemos.InitMethod" init-method="start" lazy-init="true"/>
+    <bean id="destory" class="springDemos.DestoryMethod" destroy-method="destory" lazy-init="true"/>
  </beans>
