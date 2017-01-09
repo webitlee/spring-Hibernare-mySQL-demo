@@ -22,4 +22,10 @@
     <bean id="time" factory-bean="calendar" factory-method="getTime"/>
     <bean id="init" class="springDemos.InitMethod" init-method="start" lazy-init="true"/>
     <bean id="destory" class="springDemos.DestoryMethod" destroy-method="destory" lazy-init="true"/>
+    <bean id = "computer" class="springDemos.Computer">
+        <property name="mainBord" value="华硕"></property>
+        <property name="ram" value="8G"></property>
+        <property name="hdd" value="1T"></property>
+        <property name="cpu" value="Intel"></property>
+    </bean>
  </beans>
