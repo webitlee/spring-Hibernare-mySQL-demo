@@ -28,4 +28,13 @@
         <property name="hdd" value="1T"></property>
         <property name="cpu" value="Intel"></property>
     </bean>
+    <bean id="phone" class="springDemos.ConstructorDemo">
+    	<constructor-arg index="0" value="麒麟960"></constructor-arg>
+		<constructor-arg index="1" value="8G"></constructor-arg>
+    </bean>
+    <bean id="student" class="springDemos.Student">
+    	<property name="name" value="Black Lee"></property>
+    	<property name="computer" ref="computer"></property>
+    	<property name="phone" ref="phone"></property>
+    </bean>
  </beans>

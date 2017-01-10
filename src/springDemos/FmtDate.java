@@ -20,10 +20,15 @@ public class FmtDate {
 		//InitMethod init = ac.getBean("init", InitMethod.class);
 		//DestoryMethod destroy = ac.getBean("destory", DestoryMethod.class);
 		
-		//反向控制
-		Computer computer = ac.getBean("computer", Computer.class);
-		computer.run();
-		ac.close();
+		//反向控制 set注入
+//		Computer computer = ac.getBean("computer", Computer.class);
+//		computer.run();
+		Student student = ac.getBean("student", Student.class);
+		student.run();
+
+		//构造器注入
+//		ConstructorDemo phone = ac.getBean("phone", ConstructorDemo.class);
+//		phone.run();
 	}
 
 }
