@@ -37,4 +37,35 @@
     	<property name="computer" ref="computer"></property>
     	<property name="phone" ref="phone"></property>
     </bean>
+    <bean id="friends" class="springDemos.CollectionDemo">
+    	<property name="name">
+    		<list>
+    			<value>Black Lee</value>
+    			<value>Jhon</value>
+    			<value>Lily</value>
+    		</list>
+    	</property>
+    	<property name="cities">
+    		<set>
+    			<value>北京</value>
+    			<value>黑龙江</value>
+    			<value>上海</value>
+    		</set>
+    	</property>
+    	<property name="grade">
+    		<map>
+    			<entry key="math" value="90.1"></entry>
+    			<entry key="english" value="80"></entry>
+    			<entry key="chinese" value="90"></entry>
+    		</map>
+    	</property>
+    	<property name="prop">
+    		<props>
+    			<prop key="url">http://localhost:8080/gitRepository/login</prop>
+    			<prop key="driver">java.jdbc.mysql</prop>
+    			<prop key="username">root</prop>
+    			<prop key="password">12346</prop>
+    		</props>
+    	</property>
+    </bean>
  </beans>
