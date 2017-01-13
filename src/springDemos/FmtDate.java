@@ -26,12 +26,16 @@ public class FmtDate {
 //		Student student = ac.getBean("student", Student.class);
 //		student.run();
 		//集合注入
-		CollectionDemo friends = ac.getBean("friends", CollectionDemo.class);
-		friends.run();
+		//CollectionDemo friends = ac.getBean("friends", CollectionDemo.class);
+		//friends.run();
 
 		//构造器注入
 //		ConstructorDemo phone = ac.getBean("phone", ConstructorDemo.class);
 //		phone.run();
+		
+		//注解测试
+		ComponentDemo component = ac.getBean("componentDemo", ComponentDemo.class);
+		component.run();
 	}
 
 }
