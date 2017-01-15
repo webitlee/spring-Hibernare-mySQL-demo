@@ -33,9 +33,17 @@ public class FmtDate {
 //		ConstructorDemo phone = ac.getBean("phone", ConstructorDemo.class);
 //		phone.run();
 		
-		//注解测试
-		ComponentDemo component = ac.getBean("componentDemo", ComponentDemo.class);
-		component.run();
+		//注解创建对象测试
+		//ComponentDemo component = ac.getBean("componentDemo", ComponentDemo.class);
+		//component.run();
+		
+		//注解注入对象
+		//ResourceDemo Resource = ac.getBean("resourceDemo", ResourceDemo.class);
+		//Resource.run();
+		
+		//注解注入spring表达式
+		ValuleDemo value = ac.getBean("valuleDemo", ValuleDemo.class);
+		value.run();
 	}
 
 }
