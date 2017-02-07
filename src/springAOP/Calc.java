@@ -1,13 +1,16 @@
 package springAOP;
 
-import org.springframework.stereotype.Component;
 
-@Component
-public class Calc {
-	public int add(int a, int b){
-		return a + b;
+public class Calc implements CalcImplment{
+
+	@Override
+	public int add(int i, int j) {
+		return i + j;
 	}
-	public int minus(int a, int b){
-		return a - b;
+
+	@Override
+	public int minus(int i, int j) {
+		return i - j;
 	}
+	
 }
