@@ -92,4 +92,5 @@
         <property name="prefix" value="/jsp/"></property>
     </bean>
     <context:component-scan base-package="springAOP"></context:component-scan>
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
  </beans>
