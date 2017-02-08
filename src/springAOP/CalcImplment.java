@@ -1,8 +1,9 @@
 package springAOP;
 
-import org.springframework.stereotype.Component;
 
 public interface CalcImplment {
-	public int add(int i, int j);
-	public int minus(int i , int j);
+	public void add(int i, int j);
+	public void minus(int i , int j);
+	public int mod(int i, int j);
+	public int div(int i, int j);
 }

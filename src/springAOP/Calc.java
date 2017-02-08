@@ -6,13 +6,25 @@ import org.springframework.stereotype.Component;
 public class Calc implements CalcImplment{
 
 	@Override
-	public int add(int i, int j) {
-		return i + j;
+	public void add(int i, int j) {
+		System.out.println(i + j);
 	}
 
 	@Override
-	public int minus(int i, int j) {
-		return i - j;
+	public void minus(int i, int j) {
+		System.out.println(i - j);
+	}
+
+	@Override
+	public int mod(int i, int j) {
+		System.out.println(i % j);
+		 return i % j;
+	}
+
+	@Override
+	public int div(int i, int j) {
+		System.out.println(i / j);
+		return i / j;
 	}
 	
 }

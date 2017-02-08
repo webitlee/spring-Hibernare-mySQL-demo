@@ -9,6 +9,10 @@ public class Test {
 		String url = "applicationContext.xml";
 		ApplicationContext ac = new ClassPathXmlApplicationContext(url);
 		CalcImplment calc = (CalcImplment)ac.getBean("calc");
-		System.out.println(calc.add(3, 4));
+		calc.add(4, 3);
+		calc.minus(6, 1);
+		calc.mod(5, 3);
+		int result = calc.div(5, 3);
+		System.out.println(result);
 	}
 }
