@@ -93,4 +93,26 @@
     </bean>
     <context:component-scan base-package="springAOP"></context:component-scan>
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    
+    <!-- JDBC案例 -->
+    <!-- 导入配置文件 -->
+    <util:properties id="config" location="classpath:config.properties"></util:properties>
+    <!-- 配置dbcp数据源 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="#{config.driver}"></property>
+        <property name="url" value="#{config.url}"></property>
+        <property name="username" value="#{config.username}"></property>
+        <property name="password" value="#{config.password}"></property>
+        <property name="initialSize" value="#{config.initialSize}"></property>
+        <property name="maxTotal" value="#{config.maxTotal}"></property>
+    </bean>
+    
+    
+    
+    
+    
+    
+    
+    
+    
  </beans>
