@@ -117,8 +117,7 @@
         <constructor-arg ref="dataSource"></constructor-arg>
     </bean>
     
-    
-    
-    
+	<!-- spring事务管理案例 -->    
+    <context:component-scan base-package="springAffair"></context:component-scan>
     
  </beans>
