@@ -107,9 +107,15 @@
         <property name="maxTotal" value="#{config.maxTotal}"></property>
     </bean>
     
+    <!-- 配置Spring的JDBCTemplate -->
+    <bean id="jdbc" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
     
-    
-    
+    <!-- 配置NamedParameterJdbcTemplate -->
+    <bean id="namedJdbc" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="dataSource"></constructor-arg>
+    </bean>
     
     
     
