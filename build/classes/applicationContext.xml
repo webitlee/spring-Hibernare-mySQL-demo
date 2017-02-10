@@ -119,5 +119,8 @@
     
 	<!-- spring事务管理案例 -->    
     <context:component-scan base-package="springAffair"></context:component-scan>
-    
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
  </beans>

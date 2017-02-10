@@ -11,10 +11,12 @@ public class Test {
 		int memberId = 2;
 		ApplicationContext ac = new ClassPathXmlApplicationContext(url);
 		BooksImpl booksImpl = ac.getBean("bookshop", BooksImpl.class);
-		double price = booksImpl.query(bookId);
-		System.out.println(price);
-		booksImpl.updateQuantity(bookId);
-		booksImpl.updateBalance(memberId, price);
+		Buy buy = ac.getBean("buyImpl", Buy.class);
+		buy.shopping(memberId, bookId);
+		//double price = booksImpl.query(bookId);
+		//System.out.println(price);
+		//booksImpl.updateQuantity(bookId);
+		//booksImpl.updateBalance(memberId, price);
 	}
 
 }
