@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<!-- 配置hibernate的基本属性 -->
+    	<!-- 1.数据源配置到IOC容器中，此处不需配置 -->
+    	<!-- 2.关联的.hbm.xml在IOC容器中配置SessionFactory实例时进行配置 -->
+    	<!-- 只需配置hibernate的基本属性:方言、sql显示及格式化、生成数据表的策略、二级缓存等 -->
+    	<property name="show_sql">true</property>
+    	<property name="format_sql">true</property>
+    	<property name="hbm2ddl.auto">update</property>
+    	
+    	<!-- 配置hibernate二级缓存相关 -->
+    	
+    </session-factory>
+</hibernate-configuration>

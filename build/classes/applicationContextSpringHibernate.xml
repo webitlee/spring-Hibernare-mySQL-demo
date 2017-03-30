@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+	
+	<!-- 1.配置数据源 -->
+	<!-- 导入资源文件 -->
+	<util:properties id="config" location="classpath:config.properties"></util:properties>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="user" value="#{config.username}"></property>
+		<property name="password" value="#{config.password}"></property>
+		<property name="driverClass" value="#{config.driver}"></property>
+		<property name="jdbcUrl" value="#{config.url}"></property>
+		<property name="maxPoolSize" value="#{config.maxTotal}"></property>
+		<property name="initialPoolSize" value="#{config.initialSize}"></property>
+		
+	</bean>
+	<!-- 2.配置hibernate的SessionFactory实例 -->
+	<!-- 3.配置spring的声明式事务 -->
+	
+</beans>
