@@ -15,5 +15,4 @@ public class Test {
 		DataSource dataSource = ac.getBean("dataSource", DataSource.class);
 		System.out.println(dataSource.getConnection());
 	}
-
 }

@@ -3,10 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
-	
+		
+    <!-- 配置自动扫描的包 -->
+    <context:component-scan base-package="springHibernateDaoImpl"></context:component-scan>
+	<context:component-scan base-package="springHibernate"></context:component-scan>
+	<context:component-scan base-package="springHibernate.service"></context:component-scan>
 	<!-- 1.配置数据源 -->
 	<!-- 导入资源文件 -->
 	<util:properties id="config" location="classpath:config.properties"></util:properties>
@@ -19,7 +27,30 @@
 		<property name="initialPoolSize" value="#{config.initialSize}"></property>
 		
 	</bean>
-	<!-- 2.配置hibernate的SessionFactory实例 -->
+	<!-- 2.配置hibernate的SessionFactory实例,通过spring提供的LocalSessionFactory进行配置 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- 配置数据源 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 配置hibernate配置文件 -->
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+		<!-- 配置hibernate映射文件，允许使用通配符 -->
+		<property name="mappingLocations" value="entity/*.hbm.xml"></property>
+	</bean>
 	<!-- 3.配置spring的声明式事务 -->
-	
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 配置事务属性 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="*"/> 
+		</tx:attributes>
+	</tx:advice>
+	<!-- 配置事务切点，并把事务切点和事务属性关联 -->
+	<aop:config>
+		<aop:pointcut expression="excution(* springHibernate.service.*.*(..))" id="txPointcut"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+	</aop:config>
 </beans>
