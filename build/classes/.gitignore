@@ -1,3 +1,5 @@
 /springHibernate/
 /springHibernateDao/
 /springHibernateDaoImpl/
+/springWEB/
+/springContextWEB.xml
