@@ -33,6 +33,16 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<!-- 配置hibernate配置文件 -->
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+		<!-- 法二： 使用hibernateProperties属性来配置hibernate的原生属性-->
+		<!-- 
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		 -->
 		<!-- 配置hibernate映射文件，允许使用通配符 -->
 		<property name="mappingLocations" value="entity/*.hbm.xml"></property>
 	</bean>
@@ -45,12 +55,17 @@
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="get*" read-only="true"/>
+<<<<<<< HEAD
+=======
+			<!-- 设置事务的传播行为，REQUIRES_NEWS:开启一个新事务 -->
+			<tx:method name="purchase" propagation="REQUIRES_NEW"/>
+>>>>>>> 7fa15766e702bf609a9a4c45886018235d4f9839
 			<tx:method name="*"/> 
 		</tx:attributes>
 	</tx:advice>
 	<!-- 配置事务切点，并把事务切点和事务属性关联 -->
 	<aop:config>
-		<aop:pointcut expression="excution(* springHibernate.service.*.*(..))" id="txPointcut"/>
+		<aop:pointcut expression="execution(* springHibernate.service.*.*(..))" id="txPointcut"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
 	</aop:config>
 </beans>

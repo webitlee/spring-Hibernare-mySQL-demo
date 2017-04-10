@@ -1,3 +1,8 @@
 /springHibernate/
 /springHibernateDao/
 /springHibernateDaoImpl/
+<<<<<<< HEAD
+=======
+/springWEB/
+/springContextWEB.xml
+>>>>>>> 7fa15766e702bf609a9a4c45886018235d4f9839
