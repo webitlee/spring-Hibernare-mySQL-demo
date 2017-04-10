@@ -55,11 +55,8 @@
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="get*" read-only="true"/>
-<<<<<<< HEAD
-=======
 			<!-- 设置事务的传播行为，REQUIRES_NEWS:开启一个新事务 -->
 			<tx:method name="purchase" propagation="REQUIRES_NEW"/>
->>>>>>> 7fa15766e702bf609a9a4c45886018235d4f9839
 			<tx:method name="*"/> 
 		</tx:attributes>
 	</tx:advice>

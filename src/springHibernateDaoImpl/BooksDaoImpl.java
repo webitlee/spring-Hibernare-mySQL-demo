@@ -23,17 +23,10 @@ public class BooksDaoImpl implements BooksDao {
 	} 
 
 	@Override
-<<<<<<< HEAD
-	public int findBookPriceByIsbn(String isbn) {
-		String hql = "select b.price from Books b where b.isbn = ?";
-		Query query = getSession().createQuery(hql).setString(0, isbn);
-		return (Integer)query.uniqueResult();
-=======
 	public float findBookPriceByIsbn(String isbn) {
 		String hql = "select b.price from Books b where b.isbn = ?";
 		Query query = getSession().createQuery(hql).setString(0, isbn);
 		return (Float)query.uniqueResult();
->>>>>>> 7fa15766e702bf609a9a4c45886018235d4f9839
 	}
 
 	@Override
@@ -49,17 +42,6 @@ public class BooksDaoImpl implements BooksDao {
 	}
 
 	@Override
-<<<<<<< HEAD
-	public void updateUserAccount(String username, int price) {
-		//检查余额是否充足
-		String hql2 = "select a.balance from Account a where a.username = ?";
-		float balance = (float) getSession().createQuery(hql2).setString(0, username).uniqueResult();
-		if(balance <= 0 ){
-			throw new PriceException("余额不足");
-		}
-		String hql = "update Account a set a.balance = a.balance - ? where a.username = ?";
-		getSession().createQuery(hql).setInteger(0, price).setString(1, username).executeUpdate();
-=======
 	public void updateUserAccount(String username, float price) {
 		//检查余额是否充足
 		String hql2 = "select a.balance from Account a where a.username = ?";
@@ -69,7 +51,6 @@ public class BooksDaoImpl implements BooksDao {
 		}
 		String hql = "update Account a set a.balance = a.balance - ? where a.username = ?";
 		getSession().createQuery(hql).setFloat(0, price).setString(1, username).executeUpdate();
->>>>>>> 7fa15766e702bf609a9a4c45886018235d4f9839
 	}
 
 }
